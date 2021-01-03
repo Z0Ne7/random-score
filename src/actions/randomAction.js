@@ -1,7 +1,8 @@
 import { ACTION } from '../constants/actionTypes';
 
-export const randomScore = () => {
+export const updateScore = (data) => {
   return {
-    type: ACTION.RANDOM_SCORE,
+    type: ACTION.UPDATE_SCORE,
+    payload: data
   };
 };

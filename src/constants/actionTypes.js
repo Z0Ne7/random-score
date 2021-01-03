@@ -1,3 +1,3 @@
 export const ACTION = {
-  RANDOM_SCORE: 'RANDOM_SCORE',
+  UPDATE_SCORE: 'UPDATE_SCORE',
 };
