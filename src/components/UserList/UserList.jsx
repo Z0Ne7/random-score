@@ -3,7 +3,10 @@ import { useSelector, useDispatch } from 'react-redux';
 import { User } from '../';
 import animateNumber from '../../utils/animateNumber';
 import * as action from '../../actions/randomAction';
-function UserList() {
+const UserList = () => {
+  const { randomScore } = useSelector((state) => state);
+  const userDatas = randomScore.data;
+  const dispatch = useDispatch();
   useEffect(() => {
     const interval = setInterval(() => {
       generateRandomScore();
@@ -11,20 +14,17 @@ function UserList() {
     return () => {
       clearInterval(interval);
     };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  const { randomScore } = useSelector((state) => state);
-  const userDatas = randomScore.data;
-  const dispatch = useDispatch();
   const generateRandomScore = () => {
     const newUserDatas = [...userDatas];
     for (let userData of newUserDatas) {
-      const previousScore = 0;
+      const previousScore = userData.score;
       const currentScore = previousScore + Math.floor(Math.random() * 100);
-      const duration = 2000;
-      animateNumber(previousScore, previousScore + Math.floor(Math.random() * 100), 2000, (number) => {
-        // newUserDatas.score = number;
-        console.log(userData.name)
+      const duration = 3000;
+      animateNumber(previousScore, currentScore, duration, (number) => {
+        userData.score = number;
         dispatch(action.updateScore(newUserDatas));
       });
     }
@@ -35,12 +35,10 @@ function UserList() {
         Chart
       </h1>
       <div className='w-2/6' id='user'>
-        {userDatas.map((data) => (
-          <User key={data.id} {...data} />
-        ))}
+        <User userDatas={userDatas} />
       </div>
     </div>
   );
-}
+};
 
 export default UserList;
