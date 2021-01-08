@@ -5,11 +5,11 @@ function User({ userDatas }) {
   let refs = useRef(
     Array.from({ length: userDatas.length }).map(() => React.createRef())
   );
-  console.log(refs);
+  // console.log(refs);
   useEffect(() => {
     const interval = setInterval(() => {
       animateUser();
-    }, 3000);
+    }, 2500);
 
     return () => {
       clearInterval(interval);
@@ -31,8 +31,8 @@ function User({ userDatas }) {
               0,
               refs.current[0].current.offsetTop - offsetTopUser.offsetTop,
               duration,
-              (run) => {
-                offsetTopUser.style = `transform: translateY(${run}px)`;
+              (distance) => {
+                offsetTopUser.style = `transform: translateY(${distance}px)`;
               }
             );
             break;
@@ -43,8 +43,8 @@ function User({ userDatas }) {
               0,
               refs.current[1].current.offsetTop - offsetTopUser.offsetTop,
               duration,
-              (run) => {
-                offsetTopUser.style = `transform: translateY(${run}px)`;
+              (distance) => {
+                offsetTopUser.style = `transform: translateY(${distance}px)`;
               }
             );
             break;
@@ -55,8 +55,8 @@ function User({ userDatas }) {
               0,
               refs.current[2].current.offsetTop - offsetTopUser.offsetTop,
               duration,
-              (run) => {
-                offsetTopUser.style = `transform: translateY(${run}px)`;
+              (distance) => {
+                offsetTopUser.style = `transform: translateY(${distance}px)`;
               }
             );
             break;
@@ -67,8 +67,8 @@ function User({ userDatas }) {
               0,
               refs.current[3].current.offsetTop - offsetTopUser.offsetTop,
               duration,
-              (run) => {
-                offsetTopUser.style = `transform: translateY(${run}px)`;
+              (distance) => {
+                offsetTopUser.style = `transform: translateY(${distance}px)`;
               }
             );
             break;
@@ -79,32 +79,8 @@ function User({ userDatas }) {
               0,
               refs.current[4].current.offsetTop - offsetTopUser.offsetTop,
               duration,
-              (run) => {
-                offsetTopUser.style = `transform: translateY(${run}px)`;
-              }
-            );
-            break;
-          }
-          case sortUser[5].name: {
-            const offsetTopUser = refs.current[i].current;
-            animateNumber(
-              0,
-              refs.current[5].current.offsetTop - offsetTopUser.offsetTop,
-              duration,
-              (run) => {
-                offsetTopUser.style = `transform: translateY(${run}px)`;
-              }
-            );
-            break;
-          }
-          case sortUser[6].name: {
-            const offsetTopUser = refs.current[i].current;
-            animateNumber(
-              0,
-              refs.current[6].current.offsetTop - offsetTopUser.offsetTop,
-              duration,
-              (run) => {
-                offsetTopUser.style = `transform: translateY(${run}px)`;
+              (distance) => {
+                offsetTopUser.style = `transform: translateY(${distance}px)`;
               }
             );
             break;

@@ -9,6 +9,7 @@ const initialState = {
       email: 'kaitlyn1974@hotmail.com',
       score: 0,
       avatar: ICON.USER_AVATAR_1,
+      position: 1,
     },
     {
       id: 2,
@@ -16,6 +17,7 @@ const initialState = {
       email: 'bianka.gaylo@hotmail.com',
       score: 0,
       avatar: ICON.USER_AVATAR_2,
+      position: 2,
     },
     {
       id: 3,
@@ -23,6 +25,7 @@ const initialState = {
       email: 'vernice.smi@hotmail.com',
       score: 0,
       avatar: ICON.USER_AVATAR_3,
+      position: 3,
     },
     {
       id: 4,
@@ -30,6 +33,7 @@ const initialState = {
       email: 'veda_schowalt@hotmail.com',
       score: 0,
       avatar: ICON.USER_AVATAR_4,
+      position: 4,
     },
     {
       id: 5,
@@ -37,6 +41,7 @@ const initialState = {
       email: 'elias19902011@gmail.com',
       score: 0,
       avatar: ICON.USER_AVATAR_5,
+      position: 5,
     },
   ],
 };
