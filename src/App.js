@@ -6,7 +6,7 @@ import { UserList } from './components';
 function App() {
   const dispatch = useDispatch();
   return (
-    <div className='flex justify-center h-screen'>
+    <div className='flex justify-center h-screen bg-gray-400'>
       <UserList />
     </div>
   );

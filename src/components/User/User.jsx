@@ -113,7 +113,7 @@ function User({ userDatas }) {
     <div
       ref={refs.current[index]}
       key={userData.id}
-      className='flex w-128 border border-red-100 align-center mt-5 p-3 justify-between bg-white items-center shadow-3xl rounded-md hover:bg-gray-400 hover:text-white cursor-pointer'
+      className='flex w-128 border border-red-100 align-center mt-5 p-3 justify-between bg-gray-100 items-center shadow-3xl rounded-md hover:bg-green-500 hover:text-white cursor-pointer'
     >
       <div className='w-2/6'>
         <h1 className='pb-2'>{userData.name}</h1>
