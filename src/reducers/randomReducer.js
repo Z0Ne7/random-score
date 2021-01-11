@@ -50,6 +50,9 @@ const randomReducer = (state = initialState, action) => {
   switch (action.type) {
     case ACTION.UPDATE_SCORE:
       return { data: action.payload };
+    case ACTION.SORT_SCORE:
+      state.data.sort((a, b) => b.score - a.score);
+      return state;
     default:
       return state;
   }

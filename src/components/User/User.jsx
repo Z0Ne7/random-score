@@ -1,7 +1,10 @@
 import React, { useEffect, useRef } from 'react';
 import animateNumber from '../../utils/animateNumber';
+import { useDispatch } from 'react-redux';
+import * as action from '../../actions/randomAction';
 
 function User({ userDatas }) {
+  const dispatch = useDispatch();
   let refs = useRef(
     Array.from({ length: userDatas.length }).map(() => React.createRef())
   );
@@ -9,7 +12,8 @@ function User({ userDatas }) {
   useEffect(() => {
     const interval = setInterval(() => {
       animateUser();
-    }, 2500);
+      // dispatch(action.sortScore());
+    }, 5000);
 
     return () => {
       clearInterval(interval);
@@ -21,68 +25,81 @@ function User({ userDatas }) {
     const sortUser = userDatasCopy.sort((a, b) => b.score - a.score);
     const duration = 1000;
     for (let i in sortUser) {
+      console.log(refs.current[i].current.offsetTop);
       if (refs.current[i].current !== null) {
         const resName =
           refs.current[i].current.children[0].children[0].innerText;
         switch (resName) {
           case sortUser[0].name: {
             const offsetTopUser = refs.current[i].current;
+            let currentOffsetTop = refs.current[0].current.offsetTop;
             animateNumber(
               0,
-              refs.current[0].current.offsetTop - offsetTopUser.offsetTop,
+              currentOffsetTop - offsetTopUser.offsetTop,
               duration,
               (distance) => {
                 offsetTopUser.style = `transform: translateY(${distance}px)`;
               }
             );
+            currentOffsetTop = currentOffsetTop - offsetTopUser.offsetTop;
             break;
           }
           case sortUser[1].name: {
             const offsetTopUser = refs.current[i].current;
+            let currentOffsetTop = refs.current[1].current.offsetTop;
             animateNumber(
               0,
-              refs.current[1].current.offsetTop - offsetTopUser.offsetTop,
+              currentOffsetTop - offsetTopUser.offsetTop,
               duration,
               (distance) => {
                 offsetTopUser.style = `transform: translateY(${distance}px)`;
               }
             );
+            currentOffsetTop = currentOffsetTop - offsetTopUser.offsetTop;
             break;
           }
           case sortUser[2].name: {
             const offsetTopUser = refs.current[i].current;
+            let currentOffsetTop = refs.current[2].current.offsetTop;
             animateNumber(
               0,
-              refs.current[2].current.offsetTop - offsetTopUser.offsetTop,
+              currentOffsetTop - offsetTopUser.offsetTop,
               duration,
               (distance) => {
                 offsetTopUser.style = `transform: translateY(${distance}px)`;
               }
             );
+            currentOffsetTop = currentOffsetTop - offsetTopUser.offsetTop;
             break;
           }
+
           case sortUser[3].name: {
             const offsetTopUser = refs.current[i].current;
+            let currentOffsetTop = refs.current[3].current.offsetTop;
             animateNumber(
               0,
-              refs.current[3].current.offsetTop - offsetTopUser.offsetTop,
+              currentOffsetTop - offsetTopUser.offsetTop,
               duration,
               (distance) => {
                 offsetTopUser.style = `transform: translateY(${distance}px)`;
               }
             );
+            currentOffsetTop = currentOffsetTop - offsetTopUser.offsetTop;
             break;
           }
+
           case sortUser[4].name: {
             const offsetTopUser = refs.current[i].current;
+            let currentOffsetTop = refs.current[4].current.offsetTop;
             animateNumber(
               0,
-              refs.current[4].current.offsetTop - offsetTopUser.offsetTop,
+              currentOffsetTop - offsetTopUser.offsetTop,
               duration,
               (distance) => {
                 offsetTopUser.style = `transform: translateY(${distance}px)`;
               }
             );
+            currentOffsetTop = currentOffsetTop - offsetTopUser.offsetTop;
             break;
           }
           default:

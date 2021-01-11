@@ -6,3 +6,10 @@ export const updateScore = (data) => {
     payload: data
   };
 };
+
+export const sortScore = () => {
+  return {
+    type: ACTION.SORT_SCORE,
+
+  };
+};
